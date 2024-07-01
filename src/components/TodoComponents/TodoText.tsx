@@ -4,21 +4,27 @@ import { Todo } from "../../models/models";
 
 interface Props {
   edit: boolean;
-  editTodo: string;
+  editTodoItem: string;
   todo: Todo;
-  setTodoEdit: React.Dispatch<React.SetStateAction<string>>;
+  setTodoEditItem: React.Dispatch<React.SetStateAction<string>>;
   inputRef: React.RefObject<HTMLInputElement>;
 }
 
-const TodoText: React.FC<Props> = ({ edit, editTodo, todo, setTodoEdit, inputRef }) => {
+const TodoText: React.FC<Props> = ({
+  edit,
+  editTodoItem,
+  todo,
+  setTodoEditItem,
+  inputRef,
+}) => {
   return (
     <>
       {edit ? (
         <input
           className="todos__single--text"
           ref={inputRef}
-          value={editTodo}
-          onChange={(e) => setTodoEdit(e.target.value)}
+          value={editTodoItem}
+          onChange={(e) => setTodoEditItem(e.target.value)}
         />
       ) : todo.isDone ? (
         <s className="todos__single--text">{todo.todo}</s>

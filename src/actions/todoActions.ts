@@ -1,5 +1,6 @@
 // src/actions/todoActions.ts
 
+import { Todo } from "../models/models";
 import { Actions } from "../reducers/types";
 
 export const addTodo = (todo: string): Actions => ({
@@ -20,4 +21,9 @@ export const editTodo = (id: number, edit: string): Actions => ({
 export const doneTodo = (id: number): Actions => ({
   type: "done",
   payload: id,
+});
+
+export const dragTodo = (actives: Todo[], completed: Todo[]): Actions => ({
+  type: "drag",
+  payload: { actives, completed },
 });
